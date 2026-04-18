@@ -45,7 +45,7 @@ export function LeadTable({ tenantId, initialBatchId }: Props) {
 
   const { data: batches } = useBatches({ tenant_id: tenantId });
 
-  const niches = [...new Set(data?.items.map((l) => l.niche).filter(Boolean))];
+  const niches = Array.from(new Set(data?.items.map((l) => l.niche).filter(Boolean)));
 
   return (
     <div>
