@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+celerybeat-schedule
+celerybeat.pid
+
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
