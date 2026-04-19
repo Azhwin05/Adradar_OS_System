@@ -28,7 +28,6 @@ LEAD_FIELDS = [
     "pain_signals",
     "hiring_triggers",
     "verified_email",
-    "notes",
 ]
 
 REQUIRED_FIELDS = {"company_name"}
