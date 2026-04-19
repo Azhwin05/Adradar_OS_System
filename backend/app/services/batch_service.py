@@ -59,13 +59,16 @@ async def process_batch_upload(
     for data in lead_dicts:
         score, tier = calculate_score(data)
         role_bucket = classify_role_bucket(data.get("contact_title"))
+        lead_data = {k: v for k, v in data.items() if k not in ("role_bucket",) and hasattr(Lead, k)}
+        if not lead_data.get("niche"):
+            lead_data["niche"] = niche
         lead = Lead(
             tenant_id=tenant_id,
             batch_id=batch.id,
             score=score,
             score_tier=tier,
             role_bucket=role_bucket or data.get("role_bucket"),
-            **{k: v for k, v in data.items() if k not in ("role_bucket",) and hasattr(Lead, k)},
+            **lead_data,
         )
         db.add(lead)
         leads.append(lead)
