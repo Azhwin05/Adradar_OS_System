@@ -37,9 +37,13 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+import os
+_extra = [o.strip() for o in os.getenv("EXTRA_CORS_ORIGINS", "").split(",") if o.strip()]
+_cors_origins = settings.cors_origins + _extra
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.all_cors_origins,
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
