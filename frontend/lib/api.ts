@@ -113,7 +113,7 @@ export const batchesApi = {
 
 // ─── Leads ───────────────────────────────────────────────────────────────────
 
-export interface LeadsListParams {
+export interface LeadsListParams extends Record<string, string | number | boolean | undefined> {
   tenant_id?: string;
   batch_id?: string;
   niche?: string;
