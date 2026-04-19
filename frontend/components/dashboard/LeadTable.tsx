@@ -146,7 +146,7 @@ export function LeadTable({ tenantId, initialBatchId }: Props) {
                       <td className="px-4 py-3 text-sm text-gray-500">{lead.niche || "—"}</td>
                       <td className="px-4 py-3">
                         {lead.verified_email && (
-                          <MailCheck className="w-4 h-4 text-green-500" title="Verified" />
+                          <MailCheck className="w-4 h-4 text-green-500" aria-label="Verified" />
                         )}
                       </td>
                       <td className="px-4 py-3">
