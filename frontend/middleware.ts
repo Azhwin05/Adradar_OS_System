@@ -1,8 +1,8 @@
 import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 
-export default auth((req: NextRequest & { auth?: { user?: { role?: string; tenant_id?: string } } }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default auth((req: any) => {
   const { pathname } = req.nextUrl;
   const session = req.auth;
   const user = session?.user as { role?: string; tenant_id?: string } | undefined;
